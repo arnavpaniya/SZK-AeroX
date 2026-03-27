@@ -4,12 +4,14 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import SiteFooterSections from '@/components/SiteFooterSections';
+import GlobalNav from '@/components/GlobalNav';
+import SimpleDrone from '@/components/SimpleDrone';
 
 /* ═══════════════════════════════════════════
    CONSTANTS
    ═══════════════════════════════════════════ */
-const CYAN = '#00eaff';
-const DARK = '#060c18';
+const CYAN = '#2563eb';
+const DARK = '#f8fafc';
 
 /* ═══════════════════════════════════════════
    Animated Particle Background
@@ -207,13 +209,13 @@ function FeatureCard({ feature, index }: { feature: (typeof features)[0]; index:
             0{index + 1}
           </span>
         </div>
-        <h3 className="font-sans font-bold text-2xl md:text-3xl lg:text-4xl text-white mb-3 tracking-tight">
+        <h3 className="font-sans font-bold text-2xl md:text-3xl lg:text-4xl text-slate-900 mb-3 tracking-tight">
           {feature.title}
         </h3>
         <p className="text-base md:text-lg text-[#b1c9e2] leading-relaxed font-light mb-3 max-w-lg">
           {feature.desc}
         </p>
-        <p className="text-sm text-[#7a94a8] leading-relaxed font-light max-w-lg">
+        <p className="text-sm text-slate-500 leading-relaxed font-light max-w-lg">
           {feature.detail}
         </p>
       </div>
@@ -232,47 +234,10 @@ export default function FeaturesPage() {
 
   return (
     <main
-      className="min-h-screen text-white overflow-hidden selection:bg-[#00eaff] selection:text-[#060c18]"
+      className="min-h-screen text-slate-900 overflow-hidden selection:bg-blue-600 selection:text-blue-900"
       style={{ backgroundColor: DARK }}
     >
-      {/* ──────────────────────────────────────
-          FIXED NAV
-          ────────────────────────────────────── */}
-      <div className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 md:px-10 py-5">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3 }}
-          className="flex items-center gap-3"
-        >
-          <div className="w-2 h-2 rounded-full bg-[#00eaff] shadow-[0_0_10px_#00eaff] animate-pulse" />
-          <Link href="/" className="font-mono text-[11px] text-[#dee3ea] uppercase tracking-[0.25em] hover:text-[#00eaff] transition-colors">
-            SZK AeroX
-          </Link>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4 }}
-          className="flex items-center gap-3"
-        >
-          <Link href="/use-cases" className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20">Use Cases</Link>
-          <Link href="/how-it-works" className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20">How It Works</Link>
-          <Link href="/demo" className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#00eaff] hover:bg-[#122232] hover:shadow-[0_0_20px_rgba(0,238,252,0.15)] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#00eaff]/30">Demo</Link>
-          <Link
-            href="/team"
-            className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20"
-          >
-            Our Team
-          </Link>
-          <Link
-            href="/"
-            className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#00eaff] hover:bg-[#122232] hover:shadow-[0_0_20px_rgba(0,238,252,0.15)] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#00eaff]/30"
-          >
-            Home
-          </Link>
-        </motion.div>
-      </div>
+      <GlobalNav />
 
       {/* ──────────────────────────────────────
           HERO SECTION
@@ -287,6 +252,11 @@ export default function FeaturesPage() {
             filter: 'saturate(0.5) brightness(0.4)',
           }}
         />
+
+        {/* Floating 3D Drone */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-50 mix-blend-screen mix-blend-lighten" style={{ transform: 'scale(1.1) translateY(-5%)' }}>
+          <SimpleDrone />
+        </div>
 
         {/* Dark gradient overlay */}
         <div
@@ -329,11 +299,11 @@ export default function FeaturesPage() {
               ShuZukaaa · Advanced UAV Technology
             </p>
             <h1
-              className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.95] tracking-tight"
+              className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-slate-900 mb-6 leading-[0.95] tracking-tight"
               style={{ textShadow: `0 0 60px ${CYAN}22, 0 4px 30px rgba(0,0,0,0.6)` }}
             >
               Powering{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">
                 Intelligent
               </span>{' '}
               Rescue
@@ -369,9 +339,9 @@ export default function FeaturesPage() {
           <span className="font-mono text-[9px] uppercase tracking-[0.3em]" style={{ color: '#849495' }}>
             Explore
           </span>
-          <div className="w-5 h-9 rounded-full border border-[#00eaff]/30 flex items-start justify-center p-1.5">
+          <div className="w-5 h-9 rounded-full border border-blue-600/30 flex items-start justify-center p-1.5">
             <motion.div
-              className="w-1 h-1 rounded-full bg-[#00eaff]"
+              className="w-1 h-1 rounded-full bg-blue-600"
               animate={{ y: [0, 14, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
@@ -384,7 +354,7 @@ export default function FeaturesPage() {
           ────────────────────────────────────── */}
       <section className="relative py-32 md:py-40 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
         {/* Section glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#00eaff]/[0.03] rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/[0.03] rounded-full blur-[150px] pointer-events-none" />
 
         <FadeIn className="text-center mb-20 md:mb-28">
           <div className="flex items-center justify-center gap-4 mb-5">
@@ -394,9 +364,9 @@ export default function FeaturesPage() {
             </span>
             <div className="w-16 h-[1px]" style={{ backgroundColor: `${CYAN}44` }} />
           </div>
-          <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight">
+          <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-6xl text-slate-900 tracking-tight">
             Built for the{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">
               Impossible
             </span>
           </h2>
@@ -414,7 +384,7 @@ export default function FeaturesPage() {
           ────────────────────────────────────── */}
       <section className="relative py-32 md:py-40 px-6 overflow-hidden">
         {/* Ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#00eaff]/[0.04] rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/[0.04] rounded-full blur-[160px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <FadeIn>
@@ -428,10 +398,10 @@ export default function FeaturesPage() {
               />
               <div className="w-12 h-[1px]" style={{ backgroundColor: `${CYAN}44` }} />
             </div>
-            <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-7xl text-white mb-10 tracking-tight">
+            <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-7xl text-slate-900 mb-10 tracking-tight">
               Why It{' '}
               <span
-                className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] via-[#0077ee] to-[#00eaff]"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#0077ee] to-[#3b82f6]"
                 style={{ textShadow: `0 0 40px ${CYAN}33` }}
               >
                 Matters
@@ -442,7 +412,7 @@ export default function FeaturesPage() {
           <FadeIn delay={0.15}>
             <p className="text-lg md:text-xl text-[#b1c9e2] leading-relaxed font-light max-w-3xl mx-auto">
               Every feature is engineered with one goal —{' '}
-              <span className="text-white font-medium">to reduce rescue time and increase survival chances</span>.
+              <span className="text-slate-900 font-medium">to reduce rescue time and increase survival chances</span>.
               By combining multiple sensing technologies into one intelligent system, ShuZukaaa delivers a powerful
               solution for real-world emergencies.
             </p>
@@ -463,7 +433,7 @@ export default function FeaturesPage() {
                   >
                     {stat.value}
                   </p>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#7a94a8]">{stat.label}</p>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-slate-500">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -481,16 +451,16 @@ export default function FeaturesPage() {
             background: `linear-gradient(to top, ${DARK}, transparent 40%, transparent 60%, ${DARK})`,
           }}
         />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#00eaff]/[0.05] rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/[0.05] rounded-full blur-[140px] pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <FadeIn>
             <h2
-              className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-6 tracking-tight"
+              className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl text-slate-900 mb-6 tracking-tight"
               style={{ textShadow: `0 0 40px ${CYAN}22` }}
             >
               Experience the Future of{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">
                 Rescue Technology
               </span>
             </h2>
@@ -524,7 +494,7 @@ export default function FeaturesPage() {
             </Link>
             <Link
               href="/"
-              className="px-10 py-4 rounded-xl text-sm uppercase tracking-[0.15em] font-mono font-bold text-[#060c18] transition-all duration-500 hover:scale-105"
+              className="px-10 py-4 rounded-xl text-sm uppercase tracking-[0.15em] font-mono font-bold text-[#f8fafc] transition-all duration-500 hover:scale-105"
               style={{
                 backgroundColor: CYAN,
                 boxShadow: `0 0 30px ${CYAN}33`,

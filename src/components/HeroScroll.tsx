@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
-import PreOrderModal from './PreOrderModal';
+import Link from 'next/link';
 
 const FRAME_COUNT = 192;
 const currentFrame = (index: number) => `/frames /${index.toString().padStart(5, '0')}.png`;
@@ -12,7 +11,6 @@ export default function HeroScroll() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -95,79 +93,19 @@ export default function HeroScroll() {
   }, [frameIndex, images]);
 
   return (
-    <div ref={containerRef} className="h-[250vh] bg-[#0a0e14] text-white relative z-0">
+    <div ref={containerRef} className="h-[250vh] bg-white text-slate-900 relative z-0">
 
-      <PreOrderModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-      {/* ── Fixed Nav ── */}
-      <div className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 md:px-10 py-5">
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5 }}
-          className="flex items-center gap-3"
-        >
-          <div className="w-2 h-2 rounded-full bg-[#00eefc] shadow-[0_0_10px_#00eefc] animate-pulse" />
-          <span className="font-mono text-[11px] text-[#dee3ea] uppercase tracking-[0.25em]">SZK AeroX</span>
-        </motion.div>
-
-        {/* Nav buttons */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex items-center gap-3"
-        >
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#00eefc] hover:bg-[#122232] hover:shadow-[0_0_20px_rgba(0,238,252,0.15)] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#00eefc]/30"
-          >
-            Pre-Order
-          </button>
-          <Link
-            href="/features"
-            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20"
-          >
-            Features
-          </Link>
-          <Link
-            href="/use-cases"
-            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20"
-          >
-            Use Cases
-          </Link>
-          <Link
-            href="/how-it-works"
-            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20"
-          >
-            How It Works
-          </Link>
-          <Link
-            href="/demo"
-            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#00eefc] hover:bg-[#122232] hover:shadow-[0_0_20px_rgba(0,238,252,0.15)] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#00eefc]/30"
-          >
-            Demo
-          </Link>
-          <Link
-            href="/team"
-            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20"
-          >
-            Our Team
-          </Link>
-        </motion.div>
-      </div>
 
       {/* ── Sticky Viewport ── */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
 
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e14] via-[#0d1220] to-[#0a0e14] -z-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#0d1220] to-[#ffffff] -z-20 pointer-events-none" />
 
         {/* Ambient fog lights */}
         <div className="absolute inset-0 -z-15 pointer-events-none overflow-hidden">
           <motion.div
-            className="absolute top-[-15%] left-[-15%] w-[60vw] h-[60vh] bg-[#00eefc]/[0.06] rounded-full blur-[140px]"
+            className="absolute top-[-15%] left-[-15%] w-[60vw] h-[60vh] bg-blue-600/[0.06] rounded-full blur-[140px]"
             animate={{ x: [0, 40, -40, 0], y: [0, 30, -30, 0] }}
             transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -186,15 +124,15 @@ export default function HeroScroll() {
         />
 
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e14]/60 via-[#0a0e14]/20 to-[#0a0e14]/70 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff]/60 via-[#ffffff]/20 to-[#ffffff]/70 pointer-events-none" />
 
         {/* Vignette */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 50%, #0a0e14 100%)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 50%, #ffffff 100%)' }} />
 
         {/* ── HUD Chrome (visible during mid-scroll) ── */}
         <motion.div style={{ opacity: hudOpacity }} className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Top-left telemetry */}
-          <div className="absolute top-20 left-6 md:left-10 font-mono text-[10px] text-[#00eefc]/60 uppercase tracking-widest leading-loose">
+          <div className="absolute top-20 left-6 md:left-10 font-mono text-[10px] text-blue-600/60 uppercase tracking-widest leading-loose">
             <div>ALT: 12,400 FT</div>
             <div>SPD: 42 KTS</div>
             <div>HDG: 284° NW</div>
@@ -202,25 +140,25 @@ export default function HeroScroll() {
 
           {/* Top-right status */}
           <div className="absolute top-20 right-6 md:right-10 text-right font-mono text-[10px] uppercase tracking-widest leading-loose">
-            <div className="text-[#dee3ea]/40">Sentinel-01</div>
+            <div className="text-slate-700/40">Sentinel-01</div>
             <div className="flex items-center gap-1.5 justify-end">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#00eefc] animate-pulse shadow-[0_0_4px_#00eefc]" />
-              <span className="text-[#00eefc]/70">Active</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse shadow-[0_0_4px_#3b82f6]" />
+              <span className="text-blue-600/70">Active</span>
             </div>
           </div>
 
           {/* Bottom-right coordinates */}
-          <div className="absolute bottom-6 right-6 md:right-10 text-right font-mono text-[10px] text-[#849495] uppercase tracking-wider">
+          <div className="absolute bottom-6 right-6 md:right-10 text-right font-mono text-[10px] text-slate-500 uppercase tracking-wider">
             <div>LAT: 45.3211°</div>
             <div>LONG: -121.6544°</div>
           </div>
 
           {/* Crosshair center */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 pointer-events-none">
-            <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#00eefc]/30" />
-            <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#00eefc]/30" />
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#00eefc]/30" />
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#00eefc]/30" />
+            <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-600/30" />
+            <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-blue-600/30" />
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-blue-600/30" />
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-600/30" />
           </div>
 
           {/* Scan lines */}
@@ -240,7 +178,7 @@ export default function HeroScroll() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h1 className="font-sans text-[5rem] md:text-[8rem] lg:text-[10rem] leading-none mb-4 font-bold text-white" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 60px rgba(0,238,252,0.25)' }}>
+              <h1 className="font-sans text-[5rem] md:text-[8rem] lg:text-[10rem] leading-none mb-4 font-bold text-slate-900" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 60px rgba(0,238,252,0.25)' }}>
                 SZK AeroX
               </h1>
             </motion.div>
@@ -248,7 +186,7 @@ export default function HeroScroll() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-mono text-[#00eefc] text-sm md:text-lg tracking-[0.3em] uppercase font-medium" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}
+              className="font-mono text-blue-600 text-sm md:text-lg tracking-[0.3em] uppercase font-medium" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}
             >
               Engineering Intelligence for the Unseen
             </motion.p>
@@ -261,13 +199,13 @@ export default function HeroScroll() {
           >
             <div className="p-6">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#00eefc] shadow-[0_0_6px_#00eefc]" />
-                <span className="font-mono text-[11px] text-[#00eefc]/80 uppercase tracking-[0.2em]">System Architecture</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-600 shadow-[0_0_6px_#3b82f6]" />
+                <span className="font-mono text-[11px] text-blue-600/80 uppercase tracking-[0.2em]">System Architecture</span>
               </div>
-              <h2 className="font-sans text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
+              <h2 className="font-sans text-3xl md:text-4xl font-bold text-slate-900 mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
                 Precision Engineered
               </h2>
-              <div className="w-10 h-0.5 bg-gradient-to-r from-[#00eefc] to-transparent" />
+              <div className="w-10 h-0.5 bg-gradient-to-r from-[#3b82f6] to-transparent" />
             </div>
           </motion.div>
 
@@ -278,13 +216,13 @@ export default function HeroScroll() {
           >
             <div className="p-6 text-right">
               <div className="flex items-center gap-2 justify-end mb-3">
-                <span className="font-mono text-[11px] text-[#00eefc]/80 uppercase tracking-[0.2em]">Sensor Fusion</span>
-                <div className="w-1.5 h-1.5 rounded-full bg-[#00eefc] shadow-[0_0_6px_#00eefc]" />
+                <span className="font-mono text-[11px] text-blue-600/80 uppercase tracking-[0.2em]">Sensor Fusion</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-600 shadow-[0_0_6px_#3b82f6]" />
               </div>
-              <h2 className="font-sans text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
+              <h2 className="font-sans text-3xl md:text-4xl font-bold text-slate-900 mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
                 Layered Intelligence
               </h2>
-              <div className="w-10 h-0.5 bg-gradient-to-l from-[#00eefc] to-transparent ml-auto" />
+              <div className="w-10 h-0.5 bg-gradient-to-l from-[#3b82f6] to-transparent ml-auto" />
             </div>
           </motion.div>
 
@@ -295,13 +233,13 @@ export default function HeroScroll() {
           >
             <div className="p-6">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#00eefc] shadow-[0_0_6px_#00eefc]" />
-                <span className="font-mono text-[11px] text-[#00eefc]/80 uppercase tracking-[0.2em]">Field Operations</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-600 shadow-[0_0_6px_#3b82f6]" />
+                <span className="font-mono text-[11px] text-blue-600/80 uppercase tracking-[0.2em]">Field Operations</span>
               </div>
-              <h2 className="font-sans text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
+              <h2 className="font-sans text-3xl md:text-4xl font-bold text-slate-900 mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
                 Built for Real-World Challenges
               </h2>
-              <div className="w-10 h-0.5 bg-gradient-to-r from-[#00eefc] to-transparent" />
+              <div className="w-10 h-0.5 bg-gradient-to-r from-[#3b82f6] to-transparent" />
             </div>
           </motion.div>
 
@@ -310,18 +248,18 @@ export default function HeroScroll() {
             style={{ opacity: finalOpacity, y: finalY }}
             className="absolute bottom-[10%] flex flex-col items-center text-center pointer-events-auto"
           >
-            <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl text-white mb-4 font-bold" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,238,252,0.2)' }}>
+            <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl text-slate-900 mb-4 font-bold" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,238,252,0.2)' }}>
               Every layer built with purpose
             </h2>
-            <p className="font-manrope text-[#d4e4f5] text-base md:text-lg font-normal mb-8 max-w-xl" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.7)' }}>
+            <p className="font-manrope text-slate-600 text-base md:text-lg font-normal mb-8 max-w-xl" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.7)' }}>
               Where precision engineering meets intelligent autonomy
             </p>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="px-10 py-4 rounded-xl bg-[#00eefc] text-[#0a0e14] text-base font-mono font-bold uppercase tracking-[0.15em] hover:scale-105 hover:shadow-[0_0_40px_rgba(0,238,252,0.4)] transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            <Link
+              href="/demo"
+              className="px-10 py-4 rounded-xl bg-blue-600 text-[#ffffff] text-base font-mono font-bold uppercase tracking-[0.15em] hover:scale-105 hover:shadow-[0_0_40px_rgba(0,238,252,0.4)] transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] inline-block"
             >
               Explore System
-            </button>
+            </Link>
           </motion.div>
 
           {/* Scroll Indicator */}
@@ -329,10 +267,10 @@ export default function HeroScroll() {
             className="absolute bottom-8 flex flex-col items-center gap-3"
             style={{ opacity: useTransform(frameIndex, [1, 20], [0.6, 0]) }}
           >
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#849495]">Scroll to begin</span>
-            <div className="w-5 h-8 rounded-full border border-[#00eefc]/30 flex items-start justify-center p-1">
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-slate-500">Scroll to begin</span>
+            <div className="w-5 h-8 rounded-full border border-blue-600/30 flex items-start justify-center p-1">
               <motion.div
-                className="w-1 h-1 rounded-full bg-[#00eefc]"
+                className="w-1 h-1 rounded-full bg-blue-600"
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />

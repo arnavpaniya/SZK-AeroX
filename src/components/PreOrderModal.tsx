@@ -158,7 +158,7 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
                     <button 
                       type="submit"
                       disabled={isSubmitting}
-                      className="mt-4 w-full px-8 py-4 rounded-xl bg-[#1d1d1f] text-white text-lg font-medium hover:bg-black hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:translate-y-0"
+                      className="mt-4 w-full px-8 py-4 rounded-xl bg-[#1d1d1f] text-slate-900 text-lg font-medium hover:bg-black hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:translate-y-0"
                     >
                       {isSubmitting ? 'Transmitting...' : 'Confirm Takeoff'}
                       {!isSubmitting && (
