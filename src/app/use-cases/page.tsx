@@ -9,8 +9,8 @@ import GlobalNav from '@/components/GlobalNav';
 /* ═══════════════════════════════════════════
    CONSTANTS
    ═══════════════════════════════════════════ */
-const CYAN = '#2563eb';
-const DARK = '#f8fafc';
+const CYAN = '#00eaff';
+const DARK = '#060c18';
 
 /* ═══════════════════════════════════════════
    Fog / Particle Background
@@ -187,10 +187,10 @@ function UseCaseBlock({ uc, index }: { uc: (typeof useCases)[0]; index: number }
           {icons[uc.key]}
         </motion.div>
         {/* Corner HUD lines */}
-        <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-blue-600/20" />
-        <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-blue-600/20" />
+        <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[#00eaff]/20" />
+        <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[#00eaff]/20" />
         {/* Number badge */}
-        <span className="absolute top-4 right-4 font-mono text-[10px] tracking-[0.3em] text-blue-600/40">
+        <span className="absolute top-4 right-4 font-mono text-[10px] tracking-[0.3em] text-[#00eaff]/40">
           0{index + 1}
         </span>
       </div>
@@ -200,13 +200,13 @@ function UseCaseBlock({ uc, index }: { uc: (typeof useCases)[0]; index: number }
         <span className="font-mono text-[9px] uppercase tracking-[0.3em] mb-3 block" style={{ color: `${CYAN}88` }}>
           {uc.tag}
         </span>
-        <h3 className="font-sans font-bold text-2xl md:text-3xl lg:text-4xl text-slate-900 mb-4 tracking-tight">
+        <h3 className="font-sans font-bold text-2xl md:text-3xl lg:text-4xl text-white mb-4 tracking-tight">
           {uc.title}
         </h3>
         <p className="text-base md:text-lg text-[#b1c9e2] leading-relaxed font-light mb-3">
           {uc.desc}
         </p>
-        <p className="text-sm text-slate-500 leading-relaxed font-light">
+        <p className="text-sm text-[#849495] leading-relaxed font-light">
           {uc.detail}
         </p>
       </div>
@@ -224,7 +224,7 @@ export default function UseCasesPage() {
   const heroOp = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <main className="min-h-screen text-slate-900 overflow-hidden selection:bg-blue-600 selection:text-blue-900" style={{ backgroundColor: DARK }}>
+    <main className="min-h-screen text-white overflow-hidden selection:bg-[#00eaff] selection:text-[#060c18]" style={{ backgroundColor: DARK }}>
 
       <GlobalNav />
 
@@ -239,10 +239,10 @@ export default function UseCasesPage() {
         <motion.div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl" style={{ y: heroY, opacity: heroOp }}>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}>
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] mb-6" style={{ color: `${CYAN}88` }}>ShuZukaaa · Real-World Impact</p>
-            <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-slate-900 mb-6 leading-[0.95] tracking-tight"
+            <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.95] tracking-tight"
               style={{ textShadow: `0 0 60px ${CYAN}22` }}>
               Where It Makes a{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Difference</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Difference</span>
             </h1>
           </motion.div>
           <motion.p className="font-mono text-sm md:text-base uppercase tracking-[0.2em] mb-6" style={{ color: `${CYAN}cc` }}
@@ -258,15 +258,15 @@ export default function UseCasesPage() {
         <motion.div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
           animate={{ opacity: [0.3, 0.7, 0.3] }} transition={{ duration: 2.5, repeat: Infinity }}>
           <span className="font-mono text-[9px] uppercase tracking-[0.3em]" style={{ color: '#849495' }}>Scroll</span>
-          <div className="w-5 h-9 rounded-full border border-blue-600/30 flex items-start justify-center p-1.5">
-            <motion.div className="w-1 h-1 rounded-full bg-blue-600" animate={{ y: [0, 14, 0] }} transition={{ duration: 2, repeat: Infinity }} />
+          <div className="w-5 h-9 rounded-full border border-[#00eaff]/30 flex items-start justify-center p-1.5">
+            <motion.div className="w-1 h-1 rounded-full bg-[#00eaff]" animate={{ y: [0, 14, 0] }} transition={{ duration: 2, repeat: Infinity }} />
           </div>
         </motion.div>
       </section>
 
       {/* ── USE CASES ── */}
       <section className="relative py-32 md:py-40 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/[0.025] rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#00eaff]/[0.025] rounded-full blur-[160px] pointer-events-none" />
 
         <FadeIn className="text-center mb-20 md:mb-28">
           <div className="flex items-center justify-center gap-4 mb-5">
@@ -274,9 +274,9 @@ export default function UseCasesPage() {
             <span className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: `${CYAN}88` }}>Operational Scenarios</span>
             <div className="w-16 h-[1px]" style={{ backgroundColor: `${CYAN}44` }} />
           </div>
-          <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-6xl text-slate-900 tracking-tight">
+          <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight">
             Engineered for the{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Field</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Field</span>
           </h2>
         </FadeIn>
 
@@ -289,7 +289,7 @@ export default function UseCasesPage() {
 
       {/* ── WHY IT MATTERS ── */}
       <section className="relative py-32 md:py-40 px-6 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/[0.04] rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#00eaff]/[0.04] rounded-full blur-[150px] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <FadeIn>
             <div className="flex items-center justify-center gap-4 mb-6">
@@ -298,14 +298,14 @@ export default function UseCasesPage() {
                 animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }} transition={{ duration: 2, repeat: Infinity }} />
               <div className="w-12 h-[1px]" style={{ backgroundColor: `${CYAN}44` }} />
             </div>
-            <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-7xl text-slate-900 mb-10 tracking-tight">
+            <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-7xl text-white mb-10 tracking-tight">
               Why It{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#0077ee] to-[#3b82f6]">Matters</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] via-[#0077ee] to-[#00eaff]">Matters</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-lg md:text-xl text-[#b1c9e2] leading-relaxed font-light max-w-3xl mx-auto">
-              In time-critical situations, <span className="text-slate-900 font-medium">faster detection means higher chances of survival</span>. This system reduces delays, improves accuracy, and minimizes risk for rescue teams.
+              In time-critical situations, <span className="text-white font-medium">faster detection means higher chances of survival</span>. This system reduces delays, improves accuracy, and minimizes risk for rescue teams.
             </p>
           </FadeIn>
         </div>
@@ -314,12 +314,12 @@ export default function UseCasesPage() {
       {/* ── CTA ── */}
       <section className="relative py-32 md:py-40 px-6 overflow-hidden">
         <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${DARK}, transparent 40%, transparent 60%, ${DARK})` }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/[0.05] rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#00eaff]/[0.05] rounded-full blur-[140px] pointer-events-none" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <FadeIn>
-            <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl text-slate-900 mb-6 tracking-tight" style={{ textShadow: `0 0 40px ${CYAN}22` }}>
+            <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-6 tracking-tight" style={{ textShadow: `0 0 40px ${CYAN}22` }}>
               Enhancing Rescue Through{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Technology</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Technology</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -334,7 +334,7 @@ export default function UseCasesPage() {
               Explore Features
             </Link>
             <Link href="/"
-              className="px-10 py-4 rounded-xl text-sm uppercase tracking-[0.15em] font-mono font-bold text-[#f8fafc] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_50px_rgba(0,234,255,0.4)]"
+              className="px-10 py-4 rounded-xl text-sm uppercase tracking-[0.15em] font-mono font-bold text-[#060c18] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_50px_rgba(0,234,255,0.4)]"
               style={{ backgroundColor: CYAN, boxShadow: `0 0 30px ${CYAN}33` }}>
               View Demo
             </Link>

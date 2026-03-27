@@ -50,7 +50,7 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
           
           {/* Modal Content */}
           <motion.div 
-            className="relative bg-white w-full max-w-lg rounded-[2rem] overflow-hidden shadow-2xl shadow-black/20 border border-black/5"
+            className="relative bg-[#0a0e14] w-full max-w-lg rounded-[2rem] overflow-hidden shadow-2xl shadow-black/20 border border-black/5"
             initial={{ opacity: 0, y: 80, scale: 0.95, rotateX: 5 }}
             animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
             exit={{ opacity: 0, y: 40, scale: 0.95, rotateX: -5 }}
@@ -66,7 +66,7 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
 
               {/* Minimal Drone / Arrow Icon moving up */}
               <motion.div 
-                className="relative z-10 p-4 bg-white/60 backdrop-blur-sm rounded-full shadow-[0_0_20px_rgba(255,255,255,0.8)]"
+                className="relative z-10 p-4 bg-[#0a0e14]/60 backdrop-blur-sm rounded-full shadow-[0_0_20px_rgba(255,255,255,0.8)]"
                 initial={{ y: 50, opacity: 0 }}
                 animate={isSuccess ? { y: -100, opacity: 0 } : { y: 0, opacity: 1 }}
                 transition={{ duration: isSuccess ? 1 : 0.6, type: "spring" }}
@@ -88,7 +88,7 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
               {!isSuccess && (
                 <button 
                   onClick={onClose}
-                  className="absolute top-4 right-4 text-slate-500 hover:text-slate-800 bg-white/50 backdrop-blur-sm p-2 rounded-full transition-colors"
+                  className="absolute top-4 right-4 text-[#849495] hover:text-slate-800 bg-[#0a0e14]/50 backdrop-blur-sm p-2 rounded-full transition-colors"
                   aria-label="Close"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -108,12 +108,12 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
                   animate={{ opacity: 1, scale: 1 }}
                 >
                   <h2 className="font-sans text-5xl mb-4 text-[#059669]">Flight Reserved</h2>
-                  <p className="text-slate-500 text-lg">Your drone coordinates have been locked in. We will be in touch shortly.</p>
+                  <p className="text-[#849495] text-lg">Your drone coordinates have been locked in. We will be in touch shortly.</p>
                 </motion.div>
               ) : (
                 <>
                   <h2 className="font-sans text-4xl mb-2 text-[#1d1d1f]">Initiate Flight Sequence</h2>
-                  <p className="text-slate-500 text-sm mb-6">Secure your SZK AeroX drone. Enter your coordinates below to reserve your priority shipment.</p>
+                  <p className="text-[#849495] text-sm mb-6">Secure your SZK AeroX drone. Enter your coordinates below to reserve your priority shipment.</p>
 
                   <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                     <div className="flex flex-col gap-1">
@@ -121,7 +121,7 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
                       <input 
                         id="pilotName" 
                         type="text" 
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all text-slate-800" 
+                        className="w-full px-4 py-3 bg-[#060c18] border border-[#2a3b4c] rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all text-slate-800" 
                         placeholder="John Doe" 
                         required 
                         value={formData.pilotName}
@@ -134,7 +134,7 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
                       <input 
                         id="email" 
                         type="email" 
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all text-slate-800" 
+                        className="w-full px-4 py-3 bg-[#060c18] border border-[#2a3b4c] rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all text-slate-800" 
                         placeholder="pilot@domain.com" 
                         required 
                         value={formData.email}
@@ -147,7 +147,7 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
                       <input 
                         id="cargo" 
                         type="text" 
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all text-slate-800" 
+                        className="w-full px-4 py-3 bg-[#060c18] border border-[#2a3b4c] rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all text-slate-800" 
                         placeholder="123 Sector 4, CA" 
                         required 
                         value={formData.cargo}
@@ -158,7 +158,7 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
                     <button 
                       type="submit"
                       disabled={isSubmitting}
-                      className="mt-4 w-full px-8 py-4 rounded-xl bg-[#1d1d1f] text-slate-900 text-lg font-medium hover:bg-black hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:translate-y-0"
+                      className="mt-4 w-full px-8 py-4 rounded-xl bg-[#1d1d1f] text-white text-lg font-medium hover:bg-black hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:translate-y-0"
                     >
                       {isSubmitting ? 'Transmitting...' : 'Confirm Takeoff'}
                       {!isSubmitting && (

@@ -6,8 +6,8 @@ import Link from 'next/link';
 import SiteFooterSections from '@/components/SiteFooterSections';
 import GlobalNav from '@/components/GlobalNav';
 
-const CYAN = '#2563eb';
-const DARK = '#f8fafc';
+const CYAN = '#00eaff';
+const DARK = '#060c18';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 
 export default function DemoPage() {
   return (
-    <main className="min-h-screen text-slate-900 overflow-hidden selection:bg-blue-600 selection:text-blue-900" style={{ backgroundColor: DARK }}>
+    <main className="min-h-screen text-white overflow-hidden selection:bg-[#00eaff] selection:text-[#060c18]" style={{ backgroundColor: DARK }}>
 
       <GlobalNav />
 
@@ -43,10 +43,10 @@ export default function DemoPage() {
           <p className="font-mono text-[10px] uppercase tracking-[0.4em] mb-5" style={{ color: `${CYAN}88` }}>
             ShuZukaaa · Live Preview
           </p>
-          <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-slate-900 mb-5 leading-[0.95] tracking-tight"
+          <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-5 leading-[0.95] tracking-tight"
             style={{ textShadow: `0 0 60px ${CYAN}22` }}>
             Simulation{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Demo</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Demo</span>
           </h1>
         </motion.div>
         <motion.p className="text-base md:text-lg text-[#b1c9e2] leading-relaxed max-w-xl font-light"
@@ -66,16 +66,16 @@ export default function DemoPage() {
             }}
           >
             {/* Corner HUD brackets */}
-            <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-blue-600/25 z-10 pointer-events-none" />
-            <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-blue-600/25 z-10 pointer-events-none" />
-            <div className="absolute bottom-3 left-3 w-6 h-6 border-b border-l border-blue-600/25 z-10 pointer-events-none" />
-            <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-blue-600/25 z-10 pointer-events-none" />
+            <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-[#00eaff]/25 z-10 pointer-events-none" />
+            <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-[#00eaff]/25 z-10 pointer-events-none" />
+            <div className="absolute bottom-3 left-3 w-6 h-6 border-b border-l border-[#00eaff]/25 z-10 pointer-events-none" />
+            <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-[#00eaff]/25 z-10 pointer-events-none" />
 
             {/* Status badge */}
             <div className="absolute top-5 right-5 z-10 flex items-center gap-2 pointer-events-none">
-              <motion.div className="w-2 h-2 rounded-full bg-blue-600"
+              <motion.div className="w-2 h-2 rounded-full bg-[#00eaff]"
                 animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 2, repeat: Infinity }} />
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-blue-600/60">Simulation</span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#00eaff]/60">Simulation</span>
             </div>
 
             <video
@@ -105,7 +105,7 @@ export default function DemoPage() {
 
       {/* ── ACTION SECTION ── */}
       <section className="relative py-28 md:py-36 px-6">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/[0.04] rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#00eaff]/[0.04] rounded-full blur-[130px] pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl mx-auto text-center">
           <FadeIn>
@@ -116,9 +116,9 @@ export default function DemoPage() {
                 animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }} transition={{ duration: 2, repeat: Infinity }} />
               <div className="w-12 h-[1px]" style={{ backgroundColor: `${CYAN}44` }} />
             </div>
-            <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl text-slate-900 mb-4 tracking-tight">
+            <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-4 tracking-tight">
               Try the Simulation{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Yourself</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Yourself</span>
             </h2>
           </FadeIn>
 

@@ -83,7 +83,7 @@ function ParticleField() {
       {particles.map((p, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full bg-blue-600/30"
+          className="absolute rounded-full bg-[#00eaff]/30"
           style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
           animate={{
             y: [0, -30, 0],
@@ -156,38 +156,38 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
     <FadeInSection delay={index * 0.15}>
       <motion.div
         className={`group flex flex-col md:flex-row items-center gap-6 p-6 md:p-8 rounded-2xl
-          backdrop-blur-[20px] bg-blue-600/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.3)]
-          hover:bg-blue-600/[0.12] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(0,234,255,0.15)]
+          backdrop-blur-[20px] bg-[#00eaff]/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.3)]
+          hover:bg-[#00eaff]/[0.12] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(0,234,255,0.15)]
           transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
           ${isLeft ? 'md:self-start' : 'md:self-end'}`}
         style={{ border: '1px solid rgba(0, 234, 255, 0.12)' }}
         whileHover={{ scale: 1.02 }}
       >
         {/* Avatar */}
-        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-blue-600/20 group-hover:border-blue-600/50 transition-colors duration-500 shrink-0 shadow-[0_0_20px_rgba(0,234,255,0.1)]">
+        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-[#00eaff]/20 group-hover:border-[#00eaff]/50 transition-colors duration-500 shrink-0 shadow-[0_0_20px_rgba(0,234,255,0.1)]">
           <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
         </div>
 
         {/* Info */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <h3 className="font-manrope text-xl md:text-2xl font-bold text-slate-900 tracking-tight mb-1">{member.name}</h3>
-          <p className="font-mono text-xs md:text-sm text-blue-600 uppercase tracking-[0.2em] mb-3">{member.role}</p>
+          <h3 className="font-manrope text-xl md:text-2xl font-bold text-white tracking-tight mb-1">{member.name}</h3>
+          <p className="font-mono text-xs md:text-sm text-[#00eaff] uppercase tracking-[0.2em] mb-3">{member.role}</p>
           <p className="font-inter text-sm md:text-base text-[#b1c9e2] leading-relaxed mb-4 max-w-md">{member.bio}</p>
 
           {/* Socials */}
           <div className="flex items-center gap-3">
             {member.socials.github && (
-              <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-slate-900 hover:scale-110 transition-all">
+              <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-[#849495] hover:text-white hover:scale-110 transition-all">
                 <Github width={18} height={18} strokeWidth={1.5} />
               </a>
             )}
             {member.socials.linkedin && (
-              <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#0a66c2] hover:scale-110 transition-all">
+              <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#849495] hover:text-[#0a66c2] hover:scale-110 transition-all">
                 <Linkedin width={18} height={18} strokeWidth={1.5} />
               </a>
             )}
             {member.socials.instagram && (
-              <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#E1306C] hover:scale-110 transition-all">
+              <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-[#849495] hover:text-[#E1306C] hover:scale-110 transition-all">
                 <Instagram width={18} height={18} strokeWidth={1.5} />
               </a>
             )}
@@ -209,7 +209,7 @@ export default function TeamPage() {
   });
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900 overflow-hidden selection:bg-blue-600 selection:text-blue-900">
+    <main className="min-h-screen bg-[#060c18] text-white overflow-hidden selection:bg-[#00eaff] selection:text-[#060c18]">
 
       {/* ──────────────────────────────────────
           HERO SECTION
@@ -218,9 +218,9 @@ export default function TeamPage() {
         {/* Background image */}
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/background.png)', opacity: 0.3, filter: 'saturate(0.45) brightness(0.35)' }} />
         {/* Dark gradient overlay */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #f8fafc 0%, transparent 30%, transparent 70%, #f8fafc 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #060c18 0%, transparent 30%, transparent 70%, #060c18 100%)' }} />
         {/* Ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/[0.06] rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00eaff]/[0.06] rounded-full blur-[150px] pointer-events-none" />
         <ParticleField />
 
         {/* Nav */}
@@ -229,7 +229,7 @@ export default function TeamPage() {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl">
           <motion.h1
-            className="font-sans font-bold text-6xl md:text-8xl lg:text-9xl text-slate-900 mb-6 drop-shadow-[0_0_40px_rgba(0,234,255,0.3)]"
+            className="font-sans font-bold text-6xl md:text-8xl lg:text-9xl text-white mb-6 drop-shadow-[0_0_40px_rgba(0,234,255,0.3)]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -238,7 +238,7 @@ export default function TeamPage() {
           </motion.h1>
 
           <motion.p
-            className="font-mono text-sm md:text-base text-blue-600 uppercase tracking-[0.3em] mb-10"
+            className="font-mono text-sm md:text-base text-[#00eaff] uppercase tracking-[0.3em] mb-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -262,8 +262,8 @@ export default function TeamPage() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-6 h-10 rounded-full border-2 border-blue-600/30 flex items-start justify-center p-1.5">
-            <motion.div className="w-1.5 h-1.5 rounded-full bg-blue-600" animate={{ y: [0, 16, 0] }} transition={{ duration: 2, repeat: Infinity }} />
+          <div className="w-6 h-10 rounded-full border-2 border-[#00eaff]/30 flex items-start justify-center p-1.5">
+            <motion.div className="w-1.5 h-1.5 rounded-full bg-[#00eaff]" animate={{ y: [0, 16, 0] }} transition={{ duration: 2, repeat: Infinity }} />
           </div>
         </motion.div>
       </section>
@@ -273,7 +273,7 @@ export default function TeamPage() {
           ────────────────────────────────────── */}
       <section className="relative py-32 px-6 md:px-12 max-w-5xl mx-auto">
         <FadeInSection>
-          <h2 className="font-sans font-bold text-4xl md:text-6xl text-slate-900 mb-12 text-center drop-shadow-lg">
+          <h2 className="font-sans font-bold text-4xl md:text-6xl text-white mb-12 text-center drop-shadow-lg">
             What We Are Building
           </h2>
         </FadeInSection>
@@ -300,19 +300,19 @@ export default function TeamPage() {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                className="flex items-start gap-4 p-5 rounded-xl bg-blue-600/[0.04] backdrop-blur-sm"
+                className="flex items-start gap-4 p-5 rounded-xl bg-[#00eaff]/[0.04] backdrop-blur-sm"
                 style={{ border: '1px solid rgba(0, 234, 255, 0.1)' }}
                 whileHover={{ backgroundColor: 'rgba(0, 234, 255, 0.08)' }}
               >
                 <span className="text-2xl">{item.icon}</span>
-                <p className="font-inter text-slate-700 text-sm md:text-base">{item.text}</p>
+                <p className="font-inter text-[#dee3ea] text-sm md:text-base">{item.text}</p>
               </motion.div>
             ))}
           </div>
         </FadeInSection>
 
         <FadeInSection delay={0.4}>
-          <p className="font-inter text-base md:text-lg text-blue-600/80 leading-relaxed font-light text-center italic">
+          <p className="font-inter text-base md:text-lg text-[#00eaff]/80 leading-relaxed font-light text-center italic">
             This system is designed to reduce response time, improve accuracy, and ultimately save lives.
           </p>
         </FadeInSection>
@@ -323,10 +323,10 @@ export default function TeamPage() {
           ────────────────────────────────────── */}
       <section ref={teamSectionRef} className="relative py-32 px-6 md:px-12 overflow-hidden">
         {/* Section glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/[0.04] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00eaff]/[0.04] rounded-full blur-[120px] pointer-events-none" />
 
         <FadeInSection className="text-center mb-20">
-          <h2 className="font-sans font-bold text-4xl md:text-6xl text-slate-900 mb-4 drop-shadow-lg">Meet the Minds</h2>
+          <h2 className="font-sans font-bold text-4xl md:text-6xl text-white mb-4 drop-shadow-lg">Meet the Minds</h2>
           <p className="font-inter text-[#b1c9e2] text-lg font-light max-w-xl mx-auto">
             The pioneers engineering the future of unmanned aerial vehicles at ShuZukaaa.
           </p>
@@ -338,7 +338,7 @@ export default function TeamPage() {
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-0 w-[400px] h-[400px] z-0">
             <Canvas camera={{ position: [0, 0, 6], fov: 40 }}>
               <ambientLight intensity={1.5} />
-              <pointLight position={[5, 5, 5]} color="#3b82f6" intensity={3} />
+              <pointLight position={[5, 5, 5]} color="#00eaff" intensity={3} />
               <pointLight position={[-5, -5, 5]} color="#b1c9e2" intensity={1.5} />
               <Suspense fallback={null}>
                 <Environment preset="night" />
@@ -365,7 +365,7 @@ export default function TeamPage() {
           ────────────────────────────────────── */}
       <section className="relative py-32 px-6 md:px-12 max-w-4xl mx-auto text-center">
         <FadeInSection>
-          <h2 className="font-sans font-bold text-4xl md:text-6xl text-slate-900 mb-10 drop-shadow-lg">Our Approach</h2>
+          <h2 className="font-sans font-bold text-4xl md:text-6xl text-white mb-10 drop-shadow-lg">Our Approach</h2>
         </FadeInSection>
         <FadeInSection delay={0.15}>
           <p className="font-inter text-base md:text-lg text-[#b1c9e2] leading-relaxed mb-6 font-light">
@@ -383,12 +383,12 @@ export default function TeamPage() {
           VISION
           ────────────────────────────────────── */}
       <section className="relative py-32 px-6 md:px-12 max-w-4xl mx-auto text-center">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#00eaff]/[0.03] rounded-full blur-[100px] pointer-events-none" />
         <FadeInSection>
-          <h2 className="font-sans font-bold text-4xl md:text-6xl text-slate-900 mb-10 drop-shadow-lg">Our Vision</h2>
+          <h2 className="font-sans font-bold text-4xl md:text-6xl text-white mb-10 drop-shadow-lg">Our Vision</h2>
         </FadeInSection>
         <FadeInSection delay={0.15}>
-          <p className="font-inter text-xl md:text-2xl text-slate-700 leading-relaxed mb-6 font-light">
+          <p className="font-inter text-xl md:text-2xl text-[#dee3ea] leading-relaxed mb-6 font-light">
             To redefine search and rescue operations using intelligent aerial systems.
           </p>
         </FadeInSection>
@@ -404,27 +404,27 @@ export default function TeamPage() {
           ────────────────────────────────────── */}
       <section className="relative py-32 px-6 md:px-12 text-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1a] via-[#0d1525] to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/[0.05] rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#00eaff]/[0.05] rounded-full blur-[130px] pointer-events-none" />
 
         <FadeInSection className="relative z-10">
-          <h2 className="font-manrope text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-12 tracking-tight drop-shadow-2xl">
+          <h2 className="font-manrope text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-12 tracking-tight drop-shadow-2xl">
             Building Technology That<br />
-            <span className="text-blue-600 drop-shadow-[0_0_20px_rgba(0,234,255,0.5)]">Saves Lives</span>
+            <span className="text-[#00eaff] drop-shadow-[0_0_20px_rgba(0,234,255,0.5)]">Saves Lives</span>
           </h2>
         </FadeInSection>
 
         <FadeInSection delay={0.2} className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-5">
           <Link
             href="/"
-            className="px-10 py-4 rounded-xl bg-blue-600/10 text-blue-600 font-mono text-sm uppercase tracking-[0.15em]
-              hover:bg-blue-600/20 hover:shadow-[0_0_30px_rgba(0,234,255,0.25)] transition-all duration-500"
+            className="px-10 py-4 rounded-xl bg-[#00eaff]/10 text-[#00eaff] font-mono text-sm uppercase tracking-[0.15em]
+              hover:bg-[#00eaff]/20 hover:shadow-[0_0_30px_rgba(0,234,255,0.25)] transition-all duration-500"
             style={{ border: '1px solid rgba(0, 234, 255, 0.25)' }}
           >
             Explore Project
           </Link>
           <a
             href="mailto:team@shuzukaaa.com"
-            className="px-10 py-4 rounded-xl bg-blue-600 text-[#0a0f1a] font-mono text-sm uppercase tracking-[0.15em] font-bold
+            className="px-10 py-4 rounded-xl bg-[#00eaff] text-[#0a0f1a] font-mono text-sm uppercase tracking-[0.15em] font-bold
               hover:shadow-[0_0_40px_rgba(0,234,255,0.5)] hover:scale-105 transition-all duration-500"
           >
             Contact Team

@@ -4,7 +4,7 @@ import GlobalNav from "@/components/GlobalNav";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#0a0e14]">
       <GlobalNav />
       <HeroScroll />
       <Drone3DSection />

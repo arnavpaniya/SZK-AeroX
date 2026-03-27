@@ -19,10 +19,10 @@ function DroneMesh() {
         const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
         mats.forEach((mat) => {
           const m = mat as THREE.MeshStandardMaterial;
-          m.color.setHex(0xe0e5ec); // Lighter silver/white color
-          m.roughness = 0.4;
-          m.metalness = 0.6;
-          m.envMapIntensity = 1.2;
+          m.color.setHex(0x0a0f16);
+          m.roughness = 0.6;
+          m.metalness = 0.8;
+          m.envMapIntensity = 1.0;
         });
       }
     });

@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import PreOrderModal from './PreOrderModal';
 
-const CYAN = '#2563eb';
-const DARK = '#f8fafc';
+const CYAN = '#00eaff';
+const DARK = '#060c18';
 
 export default function GlobalNav() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -43,24 +43,24 @@ export default function GlobalNav() {
       {/* TOP DESKTOP NAV */}
       <motion.div
         className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 md:px-10 py-5 transition-all duration-300 ${
-          scrolled ? 'bg-slate-50/80 backdrop-blur-md border-b border-blue-600/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' : ''
+          scrolled ? 'bg-[#060c18]/80 backdrop-blur-md border-b border-[#00eaff]/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' : ''
         }`}
       >
         {/* Left Side: Sidebar Toggle & Branding */}
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="flex items-center gap-4">
           <button
             onClick={() => setIsSidebarOpen(true)}
-            className="group flex flex-col justify-center gap-1.5 w-10 h-10 rounded-lg bg-slate-100/50 border border-blue-600/20 hover:border-blue-600/50 transition-colors p-2.5"
+            className="group flex flex-col justify-center gap-1.5 w-10 h-10 rounded-lg bg-[#0d1a26]/50 border border-[#00eaff]/20 hover:border-[#00eaff]/50 transition-colors p-2.5"
             aria-label="Open Sidebar"
           >
-            <div className="w-full h-[2px] bg-blue-600 rounded-full transition-transform group-hover:scale-x-110 origin-left" />
-            <div className="w-2/3 h-[2px] bg-blue-600 rounded-full transition-transform group-hover:scale-x-125 origin-left" />
-            <div className="w-full h-[2px] bg-blue-600 rounded-full transition-transform group-hover:scale-x-110 origin-left" />
+            <div className="w-full h-[2px] bg-[#00eaff] rounded-full transition-transform group-hover:scale-x-110 origin-left" />
+            <div className="w-2/3 h-[2px] bg-[#00eaff] rounded-full transition-transform group-hover:scale-x-125 origin-left" />
+            <div className="w-full h-[2px] bg-[#00eaff] rounded-full transition-transform group-hover:scale-x-110 origin-left" />
           </button>
 
           <Link href="/" className="flex items-center gap-3 relative group">
-            <div className="w-2 h-2 rounded-full bg-blue-600 shadow-[0_0_10px_#3b82f6] animate-pulse" />
-            <span className="font-mono text-[11px] text-slate-700 uppercase tracking-[0.25em] group-hover:text-blue-600 transition-colors">
+            <div className="w-2 h-2 rounded-full bg-[#00eaff] shadow-[0_0_10px_#00eaff] animate-pulse" />
+            <span className="font-mono text-[11px] text-[#dee3ea] uppercase tracking-[0.25em] group-hover:text-[#00eaff] transition-colors">
               SZK AeroX
             </span>
           </Link>
@@ -70,17 +70,17 @@ export default function GlobalNav() {
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="hidden md:flex items-center gap-3">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-5 py-2 text-blue-600 hover:text-slate-900 transition-colors font-mono text-[11px] tracking-[0.2em] uppercase"
+            className="px-5 py-2 text-[#00eaff] hover:text-white transition-colors font-mono text-[11px] tracking-[0.2em] uppercase"
           >
             Pre-Order
           </button>
-          <Link href="/team" className="px-5 py-2 text-slate-700 hover:text-blue-600 transition-colors font-mono text-[11px] tracking-[0.2em] uppercase">
+          <Link href="/team" className="px-5 py-2 text-[#dee3ea] hover:text-[#00eaff] transition-colors font-mono text-[11px] tracking-[0.2em] uppercase">
             Our Team
           </Link>
-          <Link href="/team#contact" className="px-5 py-2 text-slate-700 hover:text-blue-600 transition-colors font-mono text-[11px] tracking-[0.2em] uppercase">
+          <Link href="/team#contact" className="px-5 py-2 text-[#dee3ea] hover:text-[#00eaff] transition-colors font-mono text-[11px] tracking-[0.2em] uppercase">
             Contact Us
           </Link>
-          <Link href="/team#faq" className="px-5 py-2 text-slate-700 hover:text-blue-600 transition-colors font-mono text-[11px] tracking-[0.2em] uppercase">
+          <Link href="/team#faq" className="px-5 py-2 text-[#dee3ea] hover:text-[#00eaff] transition-colors font-mono text-[11px] tracking-[0.2em] uppercase">
             FAQ
           </Link>
         </motion.div>
@@ -103,11 +103,11 @@ export default function GlobalNav() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 bottom-0 z-[200] w-[300px] bg-slate-50 border-r border-blue-600/20 shadow-[20px_0_60px_rgba(0,0,0,0.8)] flex flex-col pt-24 px-8 pb-10"
+              className="fixed top-0 left-0 bottom-0 z-[200] w-[300px] bg-[#060c18] border-r border-[#00eaff]/20 shadow-[20px_0_60px_rgba(0,0,0,0.8)] flex flex-col pt-24 px-8 pb-10"
             >
               <button
                 onClick={() => setIsSidebarOpen(false)}
-                className="absolute top-6 right-6 p-2 text-slate-500 hover:text-blue-600 transition-colors"
+                className="absolute top-6 right-6 p-2 text-[#849495] hover:text-[#00eaff] transition-colors"
                 aria-label="Close Sidebar"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -117,7 +117,7 @@ export default function GlobalNav() {
               </button>
 
               <div className="flex flex-col gap-6 w-full">
-                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-blue-600/60 mb-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#00eaff]/60 mb-4">
                   Navigation Menu
                 </span>
                 
@@ -130,8 +130,8 @@ export default function GlobalNav() {
                   >
                     <Link
                       href={link.href}
-                      className={`text-2xl font-sans font-bold tracking-tight transition-all duration-300 hover:text-blue-600 hover:translate-x-2 block ${
-                        pathname === link.href ? 'text-blue-600' : 'text-slate-900'
+                      className={`text-2xl font-sans font-bold tracking-tight transition-all duration-300 hover:text-[#00eaff] hover:translate-x-2 block ${
+                        pathname === link.href ? 'text-[#00eaff]' : 'text-white'
                       }`}
                     >
                       {link.label}
@@ -141,21 +141,21 @@ export default function GlobalNav() {
               </div>
 
               <div className="mt-auto flex flex-col gap-4 md:hidden">
-                <div className="w-full h-[1px] bg-blue-600/10 mb-4" />
+                <div className="w-full h-[1px] bg-[#00eaff]/10 mb-4" />
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="w-full py-3 text-blue-600 hover:text-slate-900 font-mono text-[11px] tracking-[0.2em] uppercase transition-colors"
+                  className="w-full py-3 text-[#00eaff] hover:text-white font-mono text-[11px] tracking-[0.2em] uppercase transition-colors"
                 >
                   Pre-Order
                 </button>
-                <Link href="/team" className="w-full text-center py-3 text-slate-700 hover:text-blue-600 font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
+                <Link href="/team" className="w-full text-center py-3 text-[#dee3ea] hover:text-[#00eaff] font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
                   Our Team
                 </Link>
                 <div className="flex justify-between gap-4 mt-2">
-                  <Link href="/team#contact" className="flex-1 text-center py-3 text-slate-700 hover:text-blue-600 font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
+                  <Link href="/team#contact" className="flex-1 text-center py-3 text-[#dee3ea] hover:text-[#00eaff] font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
                     Contact Us
                   </Link>
-                  <Link href="/team#faq" className="flex-1 text-center py-3 text-slate-700 hover:text-blue-600 font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
+                  <Link href="/team#faq" className="flex-1 text-center py-3 text-[#dee3ea] hover:text-[#00eaff] font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
                     FAQ
                   </Link>
                 </div>

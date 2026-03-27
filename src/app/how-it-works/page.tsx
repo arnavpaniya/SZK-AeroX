@@ -10,8 +10,8 @@ import SimpleDrone from '@/components/SimpleDrone';
 /* ═══════════════════════════════════════════
    CONSTANTS
    ═══════════════════════════════════════════ */
-const CYAN = '#2563eb';
-const DARK = '#f8fafc';
+const CYAN = '#00eaff';
+const DARK = '#060c18';
 
 /* ═══════════════════════════════════════════
    Particles
@@ -142,11 +142,11 @@ function StepVisual({ type }: { type: string }) {
     case 'lock':
       return (
         <div className="relative w-full h-full flex items-center justify-center">
-          <motion.div className="absolute w-20 h-20 border-2 border-blue-600/40 rounded-sm"
+          <motion.div className="absolute w-20 h-20 border-2 border-[#00eaff]/40 rounded-sm"
             animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.8, 0.3], borderColor: [`${CYAN}33`, `${CYAN}aa`, `${CYAN}33`] }}
             transition={{ duration: 2, repeat: Infinity }} />
           {/* Crosshair */}
-          <div className="absolute w-16 h-16"><div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-blue-600/60" /><div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-blue-600/60" /><div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-blue-600/60" /><div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-blue-600/60" /></div>
+          <div className="absolute w-16 h-16"><div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#00eaff]/60" /><div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#00eaff]/60" /><div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#00eaff]/60" /><div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#00eaff]/60" /></div>
           <motion.div className="w-3 h-3 rounded-full" style={{ backgroundColor: CYAN, boxShadow: `0 0 15px ${CYAN}` }}
             animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
         </div>
@@ -187,8 +187,8 @@ function StepSection({ step, index, total }: { step: (typeof steps)[0]; index: n
         style={{ background: 'rgba(0,234,255,0.03)', border: '1px solid rgba(0,234,255,0.12)' }}>
         <StepVisual type={step.visual} />
         {/* Corner brackets */}
-        <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-blue-600/20" />
-        <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-blue-600/20" />
+        <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-[#00eaff]/20" />
+        <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-[#00eaff]/20" />
       </div>
 
       {/* Text */}
@@ -200,7 +200,7 @@ function StepSection({ step, index, total }: { step: (typeof steps)[0]; index: n
           </div>
           <div className="flex-1 h-[1px]" style={{ background: `linear-gradient(to right, ${CYAN}33, transparent)` }} />
         </div>
-        <h3 className="font-sans font-bold text-2xl md:text-3xl lg:text-4xl text-slate-900 mb-3 tracking-tight">
+        <h3 className="font-sans font-bold text-2xl md:text-3xl lg:text-4xl text-white mb-3 tracking-tight">
           {step.title}
         </h3>
         <p className="text-base md:text-lg text-[#b1c9e2] leading-relaxed font-light max-w-lg">
@@ -224,7 +224,7 @@ export default function HowItWorksPage() {
   const heroOp = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <main className="min-h-screen text-slate-900 overflow-hidden selection:bg-blue-600 selection:text-blue-900" style={{ backgroundColor: DARK }}>
+    <main className="min-h-screen text-white overflow-hidden selection:bg-[#00eaff] selection:text-[#060c18]" style={{ backgroundColor: DARK }}>
 
       <GlobalNav />
 
@@ -244,10 +244,10 @@ export default function HowItWorksPage() {
         <motion.div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl" style={{ y: heroY, opacity: heroOp }}>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}>
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] mb-6" style={{ color: `${CYAN}88` }}>ShuZukaaa · System Overview</p>
-            <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-slate-900 mb-6 leading-[0.95] tracking-tight"
+            <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.95] tracking-tight"
               style={{ textShadow: `0 0 60px ${CYAN}22` }}>
               How It{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Works</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Works</span>
             </h1>
           </motion.div>
           <motion.p className="font-mono text-sm md:text-base uppercase tracking-[0.2em] mb-6" style={{ color: `${CYAN}cc` }}
@@ -263,15 +263,15 @@ export default function HowItWorksPage() {
         <motion.div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
           animate={{ opacity: [0.3, 0.7, 0.3] }} transition={{ duration: 2.5, repeat: Infinity }}>
           <span className="font-mono text-[9px] uppercase tracking-[0.3em]" style={{ color: '#849495' }}>Scroll</span>
-          <div className="w-5 h-9 rounded-full border border-blue-600/30 flex items-start justify-center p-1.5">
-            <motion.div className="w-1 h-1 rounded-full bg-blue-600" animate={{ y: [0, 14, 0] }} transition={{ duration: 2, repeat: Infinity }} />
+          <div className="w-5 h-9 rounded-full border border-[#00eaff]/30 flex items-start justify-center p-1.5">
+            <motion.div className="w-1 h-1 rounded-full bg-[#00eaff]" animate={{ y: [0, 14, 0] }} transition={{ duration: 2, repeat: Infinity }} />
           </div>
         </motion.div>
       </section>
 
       {/* ── STEPS ── */}
       <section className="relative py-32 md:py-40 px-6 md:px-12 lg:px-20 max-w-6xl mx-auto">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/[0.025] rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#00eaff]/[0.025] rounded-full blur-[150px] pointer-events-none" />
 
         <FadeIn className="text-center mb-20 md:mb-28">
           <div className="flex items-center justify-center gap-4 mb-5">
@@ -279,9 +279,9 @@ export default function HowItWorksPage() {
             <span className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: `${CYAN}88` }}>Process Flow</span>
             <div className="w-16 h-[1px]" style={{ backgroundColor: `${CYAN}44` }} />
           </div>
-          <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-6xl text-slate-900 tracking-tight">
+          <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight">
             Six Steps to{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Rescue</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Rescue</span>
           </h2>
         </FadeIn>
 
@@ -316,18 +316,18 @@ export default function HowItWorksPage() {
 
       {/* ── WHY IT WORKS ── */}
       <section className="relative py-32 md:py-40 px-6 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/[0.04] rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#00eaff]/[0.04] rounded-full blur-[150px] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <FadeIn>
-            <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-7xl text-slate-900 mb-10 tracking-tight">
+            <h2 className="font-sans font-bold text-4xl md:text-5xl lg:text-7xl text-white mb-10 tracking-tight">
               Built for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#0077ee] to-[#3b82f6]">Precision & Speed</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] via-[#0077ee] to-[#00eaff]">Precision & Speed</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-lg md:text-xl text-[#b1c9e2] leading-relaxed font-light max-w-3xl mx-auto">
               By combining multiple sensing technologies with intelligent processing, the system{' '}
-              <span className="text-slate-900 font-medium">reduces search time, improves accuracy, and enhances safety</span> for rescue teams.
+              <span className="text-white font-medium">reduces search time, improves accuracy, and enhances safety</span> for rescue teams.
             </p>
           </FadeIn>
         </div>
@@ -336,12 +336,12 @@ export default function HowItWorksPage() {
       {/* ── CTA ── */}
       <section className="relative py-32 md:py-40 px-6 overflow-hidden">
         <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${DARK}, transparent 40%, transparent 60%, ${DARK})` }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/[0.05] rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#00eaff]/[0.05] rounded-full blur-[140px] pointer-events-none" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <FadeIn>
-            <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl text-slate-900 mb-6 tracking-tight" style={{ textShadow: `0 0 40px ${CYAN}22` }}>
+            <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-6 tracking-tight" style={{ textShadow: `0 0 40px ${CYAN}22` }}>
               See It in{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Action</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Action</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -351,7 +351,7 @@ export default function HowItWorksPage() {
           </FadeIn>
           <FadeIn delay={0.2} className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <Link href="/"
-              className="px-10 py-4 rounded-xl text-sm uppercase tracking-[0.15em] font-mono font-bold text-[#f8fafc] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_50px_rgba(0,234,255,0.4)]"
+              className="px-10 py-4 rounded-xl text-sm uppercase tracking-[0.15em] font-mono font-bold text-[#060c18] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_50px_rgba(0,234,255,0.4)]"
               style={{ backgroundColor: CYAN, boxShadow: `0 0 30px ${CYAN}33` }}>
               View Demo
             </Link>

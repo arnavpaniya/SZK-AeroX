@@ -4,8 +4,8 @@ import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
-const CYAN = '#2563eb';
-const DARK = '#f8fafc';
+const CYAN = '#00eaff';
+const DARK = '#060c18';
 
 /* ═══════════════════════════════════════════
    Fade helper
@@ -50,7 +50,7 @@ function FAQItem({ q, a, idx }: { q: string; a: string; idx: number }) {
         }}
       >
         <div className="flex items-center justify-between gap-4">
-          <h3 className="font-sans font-semibold text-base md:text-lg text-slate-900 pr-4">{q}</h3>
+          <h3 className="font-sans font-semibold text-base md:text-lg text-white pr-4">{q}</h3>
           <motion.span
             animate={{ rotate: open ? 45 : 0 }}
             transition={{ duration: 0.3 }}
@@ -111,7 +111,7 @@ export default function SiteFooterSections() {
           FAQ SECTION
           ═══════════════════════════════════════ */}
       <section id="faq" className="relative py-28 md:py-36 px-6 overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/[0.025] rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#00eaff]/[0.025] rounded-full blur-[140px] pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl mx-auto">
           <FI className="text-center mb-14">
@@ -120,9 +120,9 @@ export default function SiteFooterSections() {
               <span className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: `${CYAN}88` }}>FAQ</span>
               <div className="w-14 h-[1px]" style={{ backgroundColor: `${CYAN}44` }} />
             </div>
-            <h2 className="font-sans font-bold text-3xl md:text-5xl text-slate-900 tracking-tight">
+            <h2 className="font-sans font-bold text-3xl md:text-5xl text-white tracking-tight">
               Frequently Asked{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Questions</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Questions</span>
             </h2>
           </FI>
 
@@ -136,7 +136,7 @@ export default function SiteFooterSections() {
           CONTACT SECTION
           ═══════════════════════════════════════ */}
       <section id="contact" className="relative py-28 md:py-36 px-6 overflow-hidden">
-        <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-[#00eaff]/[0.03] rounded-full blur-[130px] pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto">
           <FI className="text-center mb-14">
@@ -145,9 +145,9 @@ export default function SiteFooterSections() {
               <span className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: `${CYAN}88` }}>Contact</span>
               <div className="w-14 h-[1px]" style={{ backgroundColor: `${CYAN}44` }} />
             </div>
-            <h2 className="font-sans font-bold text-3xl md:text-5xl text-slate-900 tracking-tight">
+            <h2 className="font-sans font-bold text-3xl md:text-5xl text-white tracking-tight">
               Get in{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#0088ff]">Touch</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eaff] to-[#0088ff]">Touch</span>
             </h2>
           </FI>
 
@@ -156,7 +156,7 @@ export default function SiteFooterSections() {
             <FI className="flex flex-col justify-center">
               <p className="text-lg text-[#b1c9e2] leading-relaxed font-light mb-8">
                 Interested in the project or want to collaborate?{' '}
-                <span className="text-slate-900 font-medium">Reach out to us</span>.
+                <span className="text-white font-medium">Reach out to us</span>.
               </p>
               <div className="flex flex-col gap-4">
                 {[
@@ -165,8 +165,8 @@ export default function SiteFooterSections() {
                   { icon: <LinkedInIcon />, label: 'linkedin.com/company/shuzukaaa', href: 'https://linkedin.com' },
                 ].map((item) => (
                   <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm text-slate-500 hover:text-blue-600 transition-colors font-mono">
-                    <span className="text-blue-600/60">{item.icon}</span>
+                    className="flex items-center gap-3 text-sm text-[#849495] hover:text-[#00eaff] transition-colors font-mono">
+                    <span className="text-[#00eaff]/60">{item.icon}</span>
                     {item.label}
                   </a>
                 ))}
@@ -187,7 +187,7 @@ export default function SiteFooterSections() {
                     required
                     value={formState[field.name as keyof typeof formState]}
                     onChange={(e) => setFormState({ ...formState, [field.name]: e.target.value })}
-                    className="w-full px-5 py-3.5 rounded-xl text-sm text-slate-900 placeholder-[#5a7080] font-light outline-none transition-all duration-400 focus:shadow-[0_0_20px_rgba(0,234,255,0.1)]"
+                    className="w-full px-5 py-3.5 rounded-xl text-sm text-white placeholder-[#5a7080] font-light outline-none transition-all duration-400 focus:shadow-[0_0_20px_rgba(0,234,255,0.1)]"
                     style={{ backgroundColor: 'rgba(0,234,255,0.04)', border: '1px solid rgba(0,234,255,0.1)' }}
                     onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(0,234,255,0.3)'; }}
                     onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(0,234,255,0.1)'; }}
@@ -199,7 +199,7 @@ export default function SiteFooterSections() {
                   rows={4}
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  className="w-full px-5 py-3.5 rounded-xl text-sm text-slate-900 placeholder-[#5a7080] font-light outline-none transition-all duration-400 resize-none focus:shadow-[0_0_20px_rgba(0,234,255,0.1)]"
+                  className="w-full px-5 py-3.5 rounded-xl text-sm text-white placeholder-[#5a7080] font-light outline-none transition-all duration-400 resize-none focus:shadow-[0_0_20px_rgba(0,234,255,0.1)]"
                   style={{ backgroundColor: 'rgba(0,234,255,0.04)', border: '1px solid rgba(0,234,255,0.1)' }}
                   onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(0,234,255,0.3)'; }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(0,234,255,0.1)'; }}
@@ -230,10 +230,10 @@ export default function SiteFooterSections() {
             {/* Left — Branding */}
             <div>
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-2 h-2 rounded-full bg-blue-600 shadow-[0_0_8px_#3b82f6]" />
-                <span className="font-mono text-sm text-slate-900 uppercase tracking-[0.2em] font-semibold">SZK AeroX</span>
+                <div className="w-2 h-2 rounded-full bg-[#00eaff] shadow-[0_0_8px_#00eaff]" />
+                <span className="font-mono text-sm text-white uppercase tracking-[0.2em] font-semibold">SZK AeroX</span>
               </div>
-              <p className="text-sm text-slate-500 font-light leading-relaxed max-w-xs">
+              <p className="text-sm text-[#849495] font-light leading-relaxed max-w-xs">
                 Enhancing rescue operations through intelligent UAV systems.
               </p>
             </div>
@@ -251,7 +251,7 @@ export default function SiteFooterSections() {
                   { label: 'Our Team', href: '/team' },
                 ].map((link) => (
                   <Link key={link.href} href={link.href}
-                    className="text-sm text-slate-500 hover:text-blue-600 transition-colors font-light">
+                    className="text-sm text-[#849495] hover:text-[#00eaff] transition-colors font-light">
                     {link.label}
                   </Link>
                 ))}
@@ -268,7 +268,7 @@ export default function SiteFooterSections() {
                   { icon: <MailIcon />, href: 'mailto:shuzukaaa@aerox.dev', label: 'Email' },
                 ].map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                    className="w-10 h-10 rounded-lg flex items-center justify-center text-slate-500 hover:text-blue-600 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,234,255,0.15)]"
+                    className="w-10 h-10 rounded-lg flex items-center justify-center text-[#849495] hover:text-[#00eaff] transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,234,255,0.15)]"
                     style={{ backgroundColor: 'rgba(0,234,255,0.05)', border: '1px solid rgba(0,234,255,0.1)' }}>
                     {s.icon}
                   </a>
