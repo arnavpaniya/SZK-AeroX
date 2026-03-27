@@ -6,6 +6,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, Environment, Center } from '@react-three/drei';
 import * as THREE from 'three';
 import Link from 'next/link';
+import SiteFooterSections from '@/components/SiteFooterSections';
 
 /* ═══════════════════════════════════════════
    SVG Icons
@@ -207,34 +208,39 @@ export default function TeamPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#0a0f1a] text-white overflow-hidden selection:bg-[#00eaff] selection:text-[#0a0f1a]">
+    <main className="min-h-screen bg-[#060c18] text-white overflow-hidden selection:bg-[#00eaff] selection:text-[#060c18]">
 
       {/* ──────────────────────────────────────
           HERO SECTION
           ────────────────────────────────────── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f1a] via-[#0d1525] to-[#0a0f1a]" />
+        {/* Background image */}
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/background.png)', opacity: 0.3, filter: 'saturate(0.45) brightness(0.35)' }} />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #060c18 0%, transparent 30%, transparent 70%, #060c18 100%)' }} />
         {/* Ambient glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00eaff]/[0.06] rounded-full blur-[150px] pointer-events-none" />
         <ParticleField />
 
         {/* Nav */}
-        <motion.div
-          className="absolute top-8 left-8 z-20"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <Link href="/" className="inline-flex items-center gap-2 text-[#b1c9e2] hover:text-[#00eaff] transition-colors font-inter text-sm tracking-widest uppercase">
-            <ArrowLeft width={16} height={16} /> Back
-          </Link>
-        </motion.div>
+        <div className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 md:px-10 py-5">
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-[#00eaff] shadow-[0_0_10px_#00eaff] animate-pulse" />
+            <Link href="/" className="font-mono text-[11px] text-[#dee3ea] uppercase tracking-[0.25em] hover:text-[#00eaff] transition-colors">SZK AeroX</Link>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="flex items-center gap-3">
+            <Link href="/features" className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20">Features</Link>
+            <Link href="/use-cases" className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20">Use Cases</Link>
+            <Link href="/how-it-works" className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20">How It Works</Link>
+            <Link href="/demo" className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#00eaff] hover:bg-[#122232] hover:shadow-[0_0_20px_rgba(0,238,252,0.15)] transition-all font-mono text-[11px] tracking-[0.2em] uppercase border border-[#00eaff]/30">Demo</Link>
+            <Link href="/" className="px-5 py-2 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20">Home</Link>
+          </motion.div>
+        </div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl">
           <motion.h1
-            className="font-calligraphy text-6xl md:text-8xl lg:text-9xl text-white mb-6 drop-shadow-[0_0_40px_rgba(0,234,255,0.3)]"
+            className="font-sans font-bold text-6xl md:text-8xl lg:text-9xl text-white mb-6 drop-shadow-[0_0_40px_rgba(0,234,255,0.3)]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -278,7 +284,7 @@ export default function TeamPage() {
           ────────────────────────────────────── */}
       <section className="relative py-32 px-6 md:px-12 max-w-5xl mx-auto">
         <FadeInSection>
-          <h2 className="font-calligraphy text-4xl md:text-6xl text-white mb-12 text-center drop-shadow-lg">
+          <h2 className="font-sans font-bold text-4xl md:text-6xl text-white mb-12 text-center drop-shadow-lg">
             What We Are Building
           </h2>
         </FadeInSection>
@@ -331,7 +337,7 @@ export default function TeamPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00eaff]/[0.04] rounded-full blur-[120px] pointer-events-none" />
 
         <FadeInSection className="text-center mb-20">
-          <h2 className="font-calligraphy text-4xl md:text-6xl text-white mb-4 drop-shadow-lg">Meet the Minds</h2>
+          <h2 className="font-sans font-bold text-4xl md:text-6xl text-white mb-4 drop-shadow-lg">Meet the Minds</h2>
           <p className="font-inter text-[#b1c9e2] text-lg font-light max-w-xl mx-auto">
             The pioneers engineering the future of unmanned aerial vehicles at ShuZukaaa.
           </p>
@@ -370,7 +376,7 @@ export default function TeamPage() {
           ────────────────────────────────────── */}
       <section className="relative py-32 px-6 md:px-12 max-w-4xl mx-auto text-center">
         <FadeInSection>
-          <h2 className="font-calligraphy text-4xl md:text-6xl text-white mb-10 drop-shadow-lg">Our Approach</h2>
+          <h2 className="font-sans font-bold text-4xl md:text-6xl text-white mb-10 drop-shadow-lg">Our Approach</h2>
         </FadeInSection>
         <FadeInSection delay={0.15}>
           <p className="font-inter text-base md:text-lg text-[#b1c9e2] leading-relaxed mb-6 font-light">
@@ -390,7 +396,7 @@ export default function TeamPage() {
       <section className="relative py-32 px-6 md:px-12 max-w-4xl mx-auto text-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#00eaff]/[0.03] rounded-full blur-[100px] pointer-events-none" />
         <FadeInSection>
-          <h2 className="font-calligraphy text-4xl md:text-6xl text-white mb-10 drop-shadow-lg">Our Vision</h2>
+          <h2 className="font-sans font-bold text-4xl md:text-6xl text-white mb-10 drop-shadow-lg">Our Vision</h2>
         </FadeInSection>
         <FadeInSection delay={0.15}>
           <p className="font-inter text-xl md:text-2xl text-[#dee3ea] leading-relaxed mb-6 font-light">
@@ -437,8 +443,7 @@ export default function TeamPage() {
         </FadeInSection>
       </section>
 
-      {/* Footer spacer */}
-      <div className="h-20" />
+      <SiteFooterSections />
     </main>
   );
 }

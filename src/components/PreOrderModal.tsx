@@ -107,12 +107,12 @@ export default function PreOrderModal({ isOpen, onClose }: { isOpen: boolean, on
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                 >
-                  <h2 className="font-calligraphy text-5xl mb-4 text-[#059669]">Flight Reserved</h2>
+                  <h2 className="font-sans text-5xl mb-4 text-[#059669]">Flight Reserved</h2>
                   <p className="text-slate-500 text-lg">Your drone coordinates have been locked in. We will be in touch shortly.</p>
                 </motion.div>
               ) : (
                 <>
-                  <h2 className="font-calligraphy text-4xl mb-2 text-[#1d1d1f]">Initiate Flight Sequence</h2>
+                  <h2 className="font-sans text-4xl mb-2 text-[#1d1d1f]">Initiate Flight Sequence</h2>
                   <p className="text-slate-500 text-sm mb-6">Secure your SZK AeroX drone. Enter your coordinates below to reserve your priority shipment.</p>
 
                   <form className="flex flex-col gap-4" onSubmit={handleSubmit}>

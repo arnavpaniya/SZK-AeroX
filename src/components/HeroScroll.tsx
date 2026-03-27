@@ -126,6 +126,30 @@ export default function HeroScroll() {
             Pre-Order
           </button>
           <Link
+            href="/features"
+            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20"
+          >
+            Features
+          </Link>
+          <Link
+            href="/use-cases"
+            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20"
+          >
+            Use Cases
+          </Link>
+          <Link
+            href="/how-it-works"
+            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20"
+          >
+            How It Works
+          </Link>
+          <Link
+            href="/demo"
+            className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#00eefc] hover:bg-[#122232] hover:shadow-[0_0_20px_rgba(0,238,252,0.15)] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#00eefc]/30"
+          >
+            Demo
+          </Link>
+          <Link
             href="/team"
             className="px-6 py-2.5 rounded-lg bg-[#0d1a26] text-[#dee3ea] hover:bg-[#1a2738] transition-all duration-400 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#dee3ea]/20"
           >
@@ -216,7 +240,7 @@ export default function HeroScroll() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h1 className="font-calligraphy text-[5rem] md:text-[8rem] lg:text-[10rem] leading-none mb-4 font-bold text-white" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 60px rgba(0,238,252,0.25)' }}>
+              <h1 className="font-sans text-[5rem] md:text-[8rem] lg:text-[10rem] leading-none mb-4 font-bold text-white" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 60px rgba(0,238,252,0.25)' }}>
                 SZK AeroX
               </h1>
             </motion.div>
@@ -240,7 +264,7 @@ export default function HeroScroll() {
                 <div className="w-1.5 h-1.5 rounded-full bg-[#00eefc] shadow-[0_0_6px_#00eefc]" />
                 <span className="font-mono text-[11px] text-[#00eefc]/80 uppercase tracking-[0.2em]">System Architecture</span>
               </div>
-              <h2 className="font-calligraphy text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
+              <h2 className="font-sans text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
                 Precision Engineered
               </h2>
               <div className="w-10 h-0.5 bg-gradient-to-r from-[#00eefc] to-transparent" />
@@ -257,7 +281,7 @@ export default function HeroScroll() {
                 <span className="font-mono text-[11px] text-[#00eefc]/80 uppercase tracking-[0.2em]">Sensor Fusion</span>
                 <div className="w-1.5 h-1.5 rounded-full bg-[#00eefc] shadow-[0_0_6px_#00eefc]" />
               </div>
-              <h2 className="font-calligraphy text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
+              <h2 className="font-sans text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
                 Layered Intelligence
               </h2>
               <div className="w-10 h-0.5 bg-gradient-to-l from-[#00eefc] to-transparent ml-auto" />
@@ -274,7 +298,7 @@ export default function HeroScroll() {
                 <div className="w-1.5 h-1.5 rounded-full bg-[#00eefc] shadow-[0_0_6px_#00eefc]" />
                 <span className="font-mono text-[11px] text-[#00eefc]/80 uppercase tracking-[0.2em]">Field Operations</span>
               </div>
-              <h2 className="font-calligraphy text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
+              <h2 className="font-sans text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}>
                 Built for Real-World Challenges
               </h2>
               <div className="w-10 h-0.5 bg-gradient-to-r from-[#00eefc] to-transparent" />
@@ -286,7 +310,7 @@ export default function HeroScroll() {
             style={{ opacity: finalOpacity, y: finalY }}
             className="absolute bottom-[10%] flex flex-col items-center text-center pointer-events-auto"
           >
-            <h2 className="font-calligraphy text-4xl md:text-6xl lg:text-7xl text-white mb-4 font-bold" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,238,252,0.2)' }}>
+            <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl text-white mb-4 font-bold" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,238,252,0.2)' }}>
               Every layer built with purpose
             </h2>
             <p className="font-manrope text-[#d4e4f5] text-base md:text-lg font-normal mb-8 max-w-xl" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.7)' }}>
