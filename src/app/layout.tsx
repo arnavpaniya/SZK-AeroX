@@ -34,7 +34,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "SZK-01 UAV",
+  title: "SZK AeroX",
   description: "The Future of Unmanned Aerial Vehicles",
 };
 
