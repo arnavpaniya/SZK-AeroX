@@ -13,7 +13,6 @@
     "@react-three/fiber": "^9.5.0",
     "@types/three": "^0.183.1",
     "framer-motion": "^12.38.0",
-    "framer-motion-3d": "^12.4.13",
     "lucide-react": "^1.7.0",
     "next": "16.2.1",
     "react": "19.2.4",
@@ -29,10 +28,5 @@
     "eslint-config-next": "16.2.1",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "overrides": {
-    "framer-motion-3d": {
-      "@react-three/fiber": "$@react-three/fiber"
-    }
   }
 }
