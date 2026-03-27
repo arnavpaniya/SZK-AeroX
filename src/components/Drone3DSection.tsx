@@ -2,7 +2,7 @@
 
 import { useRef, Suspense, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF, Environment, ContactShadows } from '@react-three/drei';
+import { useGLTF, Environment, ContactShadows, Center } from '@react-three/drei';
 import { useScroll, useTransform, useSpring, motion } from 'framer-motion';
 import * as THREE from 'three';
 
@@ -79,30 +79,33 @@ function DroneModel({
 }) {
   const { scene } = useGLTF('/rc_quadcopter.glb');
   const meshRef = useRef<THREE.Group>(null);
-  const clonedScene = useMemo(() => {
-    const clone = scene.clone();
-    // Fix materials — model has black baseColors, needs brightness
-    clone.traverse((child) => {
+  const materialsFixed = useRef(false);
+
+  // Fix materials once after mount — preserve textures but boost visibility
+  useEffect(() => {
+    if (materialsFixed.current) return;
+    scene.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
-        if (mesh.material) {
-          const mat = mesh.material as THREE.MeshStandardMaterial;
-          // Clone material to avoid mutating original
-          const newMat = mat.clone();
-          // If base color is very dark, brighten it
-          if (newMat.color && newMat.color.r + newMat.color.g + newMat.color.b < 0.1) {
-            newMat.color.set('#333840');
+        const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+        materials.forEach((mat) => {
+          const stdMat = mat as THREE.MeshStandardMaterial;
+          // Brighten black base colors but keep textures
+          if (stdMat.color && stdMat.color.r + stdMat.color.g + stdMat.color.b < 0.15) {
+            stdMat.color.set('#556070');
           }
-          // Add subtle emissive glow so drone is visible in dark scene
-          newMat.emissive = new THREE.Color('#0a1520');
-          newMat.emissiveIntensity = 0.3;
-          newMat.metalness = 0.6;
-          newMat.roughness = 0.3;
-          mesh.material = newMat;
-        }
+          // Boost emissive for dark scene visibility
+          if (!stdMat.emissiveMap) {
+            stdMat.emissive = new THREE.Color('#1a2a3a');
+            stdMat.emissiveIntensity = 0.5;
+          }
+          stdMat.metalness = Math.min(stdMat.metalness, 0.7);
+          stdMat.roughness = Math.max(stdMat.roughness, 0.25);
+          stdMat.needsUpdate = true;
+        });
       }
     });
-    return clone;
+    materialsFixed.current = true;
   }, [scene]);
 
   // Smooth values for lerping
@@ -123,37 +126,31 @@ function DroneModel({
     let targetZ = 0;
 
     if (t < 0.17) {
-      // Phase 1 — HERO, center, enters from above
       const p = t / 0.17;
       targetX = 0;
       targetY = THREE.MathUtils.lerp(3, 0.3, p);
       targetZ = THREE.MathUtils.lerp(-2, 0, p);
     } else if (t < 0.33) {
-      // Phase 2 — sweep far RIGHT
       const p = (t - 0.17) / 0.16;
       targetX = THREE.MathUtils.lerp(0, 3, p);
       targetY = 0.2;
       targetZ = 0;
     } else if (t < 0.50) {
-      // Phase 3 — sweep far LEFT
       const p = (t - 0.33) / 0.17;
       targetX = THREE.MathUtils.lerp(3, -3, p);
       targetY = 0.3;
       targetZ = 0;
     } else if (t < 0.67) {
-      // Phase 4 — rush TOWARD camera (Z-axis lunge), center
       const p = (t - 0.50) / 0.17;
       targetX = THREE.MathUtils.lerp(-3, 0, p);
       targetY = 0.2;
       targetZ = THREE.MathUtils.lerp(0, 4, p);
     } else if (t < 0.83) {
-      // Phase 5 — back out, sweep right
       const p = (t - 0.67) / 0.16;
       targetX = THREE.MathUtils.lerp(0, 2.5, p);
       targetY = 0.3;
       targetZ = THREE.MathUtils.lerp(4, 0, p);
     } else {
-      // Phase 6 — center, close
       const p = (t - 0.83) / 0.17;
       targetX = THREE.MathUtils.lerp(2.5, 0, p);
       targetY = 0.2;
@@ -184,20 +181,17 @@ function DroneModel({
     const tiltX = -s.my * 0.15;
     const tiltZ = -s.mx * 0.08;
 
-    const targetRotX = tiltX;
-    const targetRotY = baseRotY;
-    s.rotX += (targetRotX - s.rotX) * lerpSpeed;
-    s.rotY += (targetRotY - s.rotY) * lerpSpeed;
+    s.rotX += (tiltX - s.rotX) * lerpSpeed;
+    s.rotY += (baseRotY - s.rotY) * lerpSpeed;
 
     meshRef.current.rotation.set(s.rotX, s.rotY, tiltZ);
-
-    // Scale — model is ~420 units wide, need it to be ~5 units
-    meshRef.current.scale.setScalar(0.012);
   });
 
   return (
-    <group ref={meshRef}>
-      <primitive object={clonedScene} />
+    <group ref={meshRef} scale={0.012}>
+      <Center>
+        <primitive object={scene} />
+      </Center>
     </group>
   );
 }
@@ -214,25 +208,25 @@ function Scene({
 }) {
   return (
     <>
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[5, 8, 5]} intensity={1.5} castShadow color="#ffffff" />
-      <directionalLight position={[-4, 3, -4]} intensity={0.7} color={CYAN} />
-      <pointLight position={[0, 2, 4]} intensity={1.0} color={CYAN} distance={15} />
-      <pointLight position={[0, -1, 2]} intensity={0.5} color="#ffffff" distance={10} />
-      <spotLight position={[0, 6, 0]} intensity={0.6} angle={0.5} penumbra={1} color="#ffffff" />
+      <ambientLight intensity={1.0} />
+      <directionalLight position={[5, 8, 5]} intensity={2.0} castShadow color="#ffffff" />
+      <directionalLight position={[-4, 3, -4]} intensity={1.0} color={CYAN} />
+      <pointLight position={[0, 3, 5]} intensity={1.5} color="#ffffff" distance={20} />
+      <pointLight position={[2, -1, 3]} intensity={0.8} color={CYAN} distance={15} />
+      <spotLight position={[0, 8, 2]} intensity={1.0} angle={0.6} penumbra={1} color="#ffffff" />
 
       <DroneModel scrollVec={scrollVec} mouseVec={mouseVec} />
 
       <ContactShadows
         position={[0, -2.5, 0]}
-        opacity={0.25}
+        opacity={0.2}
         scale={14}
         blur={3}
         far={5}
         color={CYAN}
       />
 
-      <Environment preset="night" />
+      <Environment preset="city" />
     </>
   );
 }
@@ -301,7 +295,7 @@ export default function Drone3DSection() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10"
           style={{
-            backgroundImage: 'url(/sky_bg.png)',
+            backgroundImage: 'url(/background.png)',
             opacity: skyBrightness,
             filter: 'saturate(0.4)',
           }}
