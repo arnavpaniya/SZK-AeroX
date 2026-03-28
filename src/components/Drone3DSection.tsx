@@ -179,7 +179,7 @@ function DroneModel({
       ty = 0.05;
       tz = THREE.MathUtils.lerp(0.8, 0, p);
       doSpin = true;
-      s.spinAngle += delta * Math.PI * 2.4; // ~1.2 rotations/sec
+      s.spinAngle += delta * Math.PI * 0.6; // ~0.3 rotations/sec
     } else {
       const p = (t - 0.83) / 0.17;
       tx = 0;
@@ -366,7 +366,7 @@ export default function Drone3DSection() {
 
         {/* Canvas — drag-to-rotate captures pointer */}
         <div
-          className="absolute inset-0 z-10"
+          className="absolute inset-0 z-40"
           style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
