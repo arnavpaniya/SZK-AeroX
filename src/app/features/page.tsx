@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import SiteFooterSections from '@/components/SiteFooterSections';
-import GlobalNav from '@/components/GlobalNav';
 import SimpleDrone from '@/components/SimpleDrone';
 
 /* ═══════════════════════════════════════════
@@ -237,7 +236,6 @@ export default function FeaturesPage() {
       className="min-h-screen text-white overflow-hidden selection:bg-[#00eaff] selection:text-[#060c18]"
       style={{ backgroundColor: DARK }}
     >
-      <GlobalNav />
 
       {/* ──────────────────────────────────────
           HERO SECTION

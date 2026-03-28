@@ -7,7 +7,6 @@ import { useGLTF, Environment, Center } from '@react-three/drei';
 import * as THREE from 'three';
 import Link from 'next/link';
 import SiteFooterSections from '@/components/SiteFooterSections';
-import GlobalNav from '@/components/GlobalNav';
 
 /* ═══════════════════════════════════════════
    SVG Icons
@@ -24,8 +23,6 @@ type Socials = { github?: string; linkedin?: string; instagram?: string };
 
 type TeamMember = {
   name: string;
-  role: string;
-  bio: string;
   image: string;
   socials: Socials;
 };
@@ -33,29 +30,21 @@ type TeamMember = {
 const teamMembers: TeamMember[] = [
   {
     name: "Arnav Paniya",
-    role: "Lead Systems Engineer",
-    bio: "Architecting the core UAV framework, integrating sensor fusion pipelines and real-time decision systems.",
     image: "/arnav.jpg",
     socials: { github: "https://github.com/arnavpaniya", linkedin: "https://www.linkedin.com/in/arnav-paniya/", instagram: "https://www.instagram.com/arnav._.paniya/" }
   },
   {
     name: "Harshit N M",
-    role: "Aerodynamics Specialist",
-    bio: "Designing the drone airframe for maximum stability and endurance in turbulent rescue environments.",
     image: "/harshit.jpg",
     socials: { linkedin: "https://www.linkedin.com/in/harshit-n-m-b3457a2a5", instagram: "https://www.instagram.com/harshit_nm31" }
   },
   {
     name: "Rithesh S",
-    role: "Avionics & Software",
-    bio: "Building the onboard intelligence — from flight controllers to AI-driven audio signal processing.",
     image: "/rithesh.jpg",
     socials: { linkedin: "https://www.linkedin.com/in/rithesh-s-206112335", instagram: "https://www.instagram.com/rithesh.06" }
   },
   {
     name: "Adithya S P",
-    role: "Hardware Architecture",
-    bio: "Engineering the sensor arrays and power systems that keep the UAV operational in harsh conditions.",
     image: "/adithya.jpg",
     socials: { linkedin: "https://www.linkedin.com/in/adithya-s-p-066628357", instagram: "https://www.instagram.com/adithya._.10" }
   }
@@ -170,9 +159,7 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
 
         {/* Info */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <h3 className="font-manrope text-xl md:text-2xl font-bold text-white tracking-tight mb-1">{member.name}</h3>
-          <p className="font-mono text-xs md:text-sm text-[#00eaff] uppercase tracking-[0.2em] mb-3">{member.role}</p>
-          <p className="font-inter text-sm md:text-base text-[#b1c9e2] leading-relaxed mb-4 max-w-md">{member.bio}</p>
+          <h3 className="font-manrope text-xl md:text-2xl font-bold text-white tracking-tight mb-4">{member.name}</h3>
 
           {/* Socials */}
           <div className="flex items-center gap-3">
@@ -222,9 +209,6 @@ export default function TeamPage() {
         {/* Ambient glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00eaff]/[0.06] rounded-full blur-[150px] pointer-events-none" />
         <ParticleField />
-
-        {/* Nav */}
-        <GlobalNav />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl">

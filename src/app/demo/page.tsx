@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import SiteFooterSections from '@/components/SiteFooterSections';
-import GlobalNav from '@/components/GlobalNav';
 
 const CYAN = '#00eaff';
 const DARK = '#060c18';
@@ -24,8 +23,6 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 export default function DemoPage() {
   return (
     <main className="min-h-screen text-white overflow-hidden selection:bg-[#00eaff] selection:text-[#060c18]" style={{ backgroundColor: DARK }}>
-
-      <GlobalNav />
 
       {/* ── Background elements ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
