@@ -41,3 +41,7 @@ npm run dev
 - `src/app/`: Applications routes (`/features`, `/use-cases`, `/how-it-works`, `/demo`, `/team`).
 - `src/components/`: Modular UI elements (`Drone3DSection`, `GlobalNav`, `SimpleDrone`, `HeroScroll`, `PreOrderModal`).
 - `public/`: Static assets (3D GLB models, global background textures, simulation videos, frames).
+
+## Credits
+
+Made in collaborations with Adithya SP, Rithesh S, Harshit N M
