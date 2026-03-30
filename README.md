@@ -1,5 +1,7 @@
 # SZK-AeroX Marketing Website
 
+**[Live Demo](https://szkaerox.vercel.app)**
+
 A premium, cinematic marketing platform for the SZK-AeroX Search & Rescue UAV system. Built with Next.js, Framer Motion, and Tailwind CSS. The site features immersive 3D graphics rendered with Three.js via React Three Fiber, scroll-dependent animations, and a cohesive dark techno-aesthetic layout optimized for user engagement.
 
 ## Hero Page & Drone Showcase
